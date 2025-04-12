@@ -30,7 +30,8 @@ int main() {
 
     // Attente d'une requête initiale
     recvfrom(sock, buffer, BUFFER_SIZE, 0, (struct sockaddr*)&client, &client_len);
-
+    printf("Received from client: %s\n", buffer);
+    
     for (int i = 0; i < 60; i++) {
         time(&now);
         snprintf(buffer, BUFFER_SIZE, "Il est %s", ctime(&now));
